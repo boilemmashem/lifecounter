@@ -11,9 +11,9 @@ export const Settings = () => {
 
 
     const saveChanges = () => {
-        alert(
-            "save changes..."
-        )
+        //Get fetch the values from the input boxes and store them in the Settings state.
+        contextValue.setLifeTotal(document.getElementById("settingsLifeTotal").value)
+        contextValue.setPlayerCount(document.getElementById("settingsPlayerCount").value)
     }
 
 
@@ -21,12 +21,12 @@ export const Settings = () => {
         <StyledSettings>
             <menu>
                 <li>
-                    <label htmlFor="lifeTotal">Starting Life total</label>
-                    <input id="lifeTotal" defaultValue={contextValue.lifeTotal}></input>
+                    <label htmlFor="settingsLifeTotal">Starting Life total</label>
+                    <input id="settingsLifeTotal" defaultValue={contextValue.lifeTotal}></input>
                 </li>
                 <li>
-                    <label htmlFor="playerCount">Number of Players: </label>
-                    <input id="playerCount" defaultValue={contextValue.playerCount}/>
+                    <label htmlFor="settingsPlayerCount">Number of Players: </label>
+                    <input id="settingsPlayerCount" defaultValue={contextValue.playerCount}/>
                 </li>
             </menu>
             <button onClick={() => saveChanges()}>Save Changes</button>
