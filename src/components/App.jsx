@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 import styled from 'styled-components'
-// import { Player } from './Player';
+import { Player } from './Player';
 // import { Settings } from './Settings';
 import { Menu } from './Menu';
 
@@ -22,6 +22,11 @@ export function App() {
       <SettingsContext.Provider value={{lifeTotal, setLifeTotal, playerCount, setPlayerCount}}>
         <Menu/>
       </SettingsContext.Provider>
+      {/* TODO add players relative to the number added in the settings */}
+      <Player 
+        lifeTotal={lifeTotal}
+        defaultPlayerName={"Player 1"}
+      />
     </StyledApp>
   );
 }
