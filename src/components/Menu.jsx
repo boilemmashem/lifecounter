@@ -25,7 +25,7 @@ const MenuModal = (props) => {
     return (
         <StyledMenuModal onClick={props.onClick}>
             <div className='menu' onClick={e => e.stopPropagation()}>
-                <Settings setPlayerCount={props.setPlayerCount} playerCount={props.playerCount}/>
+                <Settings />
             </div>
         </StyledMenuModal>
     )
@@ -46,9 +46,7 @@ export const Menu = (props) => {
             <button onClick={() => toggleMenuOpen()}>MENU</button>
             {menuOpen ? 
                 <MenuModal 
-                    isOpen={menuOpen} 
-                    playerCount={props.playerCount} 
-                    setPlayerCount={props.setPlayerCount}
+                    isOpen={menuOpen}
                     onClick={() => {setMenuOpen(false)}}/> 
                 : null}
         </StyledMenu>

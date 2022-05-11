@@ -4,19 +4,22 @@ import styled from 'styled-components'
 // import { Settings } from './Settings';
 import { Menu } from './Menu';
 
+export const SettingsContext = React.createContext();
+
+
 const StyledApp = styled.div`
 `
+export function App() {
 
-function App() {
-
-  // const [lifeTotal, setLifeTotal] = useState(0);
+  // Hook contexts for settings
+  const [lifeTotal, setLifeTotal] = useState(20);
   const [playerCount, setPlayerCount] = useState(1);
 
   return (
     <StyledApp>
-      <Menu playerCount={playerCount} setPlayerCount={setPlayerCount}/>
+      <SettingsContext.Provider value={{lifeTotal, setLifeTotal, playerCount, setPlayerCount}}>
+        <Menu/>
+      </SettingsContext.Provider>
     </StyledApp>
   );
 }
-
-export default App;

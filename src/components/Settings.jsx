@@ -1,28 +1,35 @@
 import React from 'react'
 import styled from 'styled-components'
+import { SettingsContext } from './App'
+
 
 const StyledSettings = styled.div`
     
 `
+export const Settings = () => {
+    const contextValue = React.useContext(SettingsContext);
 
-export const Settings = (props) => {
 
-    const changePlayerCount = (num) => {
-        props.setPlayerCount(num.target.value)
+    const saveChanges = () => {
+        alert(
+            "save changes..."
+        )
     }
+
 
     return (
         <StyledSettings>
             <menu>
                 <li>
-                    <label htmlFor="playerCount">Number of Players: </label>
-                    <input id="playerCount" value={props.playerCount} onChange={(num) => changePlayerCount(num)}/>
+                    <label htmlFor="lifeTotal">Starting Life total</label>
+                    <input id="lifeTotal" defaultValue={contextValue.lifeTotal}></input>
                 </li>
                 <li>
-                    <label htmlFor="lifeTotal">Starting life total: </label>
-                    <input id="lifeTotal" />
+                    <label htmlFor="playerCount">Number of Players: </label>
+                    <input id="playerCount" defaultValue={contextValue.playerCount}/>
                 </li>
             </menu>
+            <button onClick={() => saveChanges()}>Save Changes</button>
         </StyledSettings>
     )
 }
