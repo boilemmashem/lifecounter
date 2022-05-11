@@ -12,15 +12,17 @@ export const Settings = (props) => {
 
     const saveChanges = (props) => {
         // Get fetch the values from the input boxes and store them in the Settings state.
-        // Store the new values into localstorage
         const settingsLifeTotal = parseInt(document.getElementById("settingsLifeTotal").value)
         const settingsPlayerCount = parseInt(document.getElementById("settingsPlayerCount").value)
-
         contextValue.setLifeTotal(settingsLifeTotal);
-        window.localStorage.setItem("lifeTotal", settingsLifeTotal)
-
         contextValue.setPlayerCount(settingsPlayerCount)
-        window.localStorage.setItem("playerCount", settingsPlayerCount)
+
+        // Store the settings in settingsObject for localStorage
+        const settingsObj = {
+            'playerCount': settingsPlayerCount,
+            'lifeTotal': settingsLifeTotal
+        }
+        window.localStorage.setItem('settingsObj', JSON.stringify(settingsObj))
     }
 
     const closeMenu = () => {

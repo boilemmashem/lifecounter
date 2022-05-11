@@ -6,7 +6,7 @@ const StyledPlayer = styled.div`
 `
 
 export const Player = (props) => {
-    const [playerLifeCount, setplayerLifeCount] = useState(20);
+    const [playerLifeCount, setplayerLifeCount] = useState(props.lifeTotal);
     // const [playerInfectCount, setPlayerInfectCount] = useState(0);
     // const [playerCmdrCount, setPlayerCmdrCount] = useState(0)
     const [playerName, setPlayerName] = useState(props.defaultPlayerName);
