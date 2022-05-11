@@ -12,8 +12,10 @@ const StyledApp = styled.div`
 export function App() {
 
   // Hook contexts for settings
-  const [lifeTotal, setLifeTotal] = useState(20);
-  const [playerCount, setPlayerCount] = useState(1);
+  // Pull in settings from localstorage as the initial value
+  const [lifeTotal, setLifeTotal] = useState(localStorage.getItem('lifeTotal') ? localStorage.getItem('lifeTotal'): 20);
+  const [playerCount, setPlayerCount] = useState(localStorage.getItem('playerCount') ? localStorage.getItem('playerCount'): 1);
+
 
   return (
     <StyledApp>
