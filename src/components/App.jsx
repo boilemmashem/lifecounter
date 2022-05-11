@@ -16,17 +16,27 @@ export function App() {
   const [lifeTotal, setLifeTotal] = useState(localStorage.getItem('lifeTotal') ? localStorage.getItem('lifeTotal'): 20);
   const [playerCount, setPlayerCount] = useState(localStorage.getItem('playerCount') ? localStorage.getItem('playerCount'): 1);
 
+  const makePlayers = (numOfPlayers) => {
+    let playersArr = [];
+    for(let i = 1; i <= numOfPlayers; i++) {
+      playersArr.push(
+        <Player
+          lifeTotal={lifeTotal}
+          defaultPlayerName={`Player ${i}`}
+          key={`player${i}`}
+        />
+      )
+    }
+    return playersArr;
+  }
+
 
   return (
     <StyledApp>
       <SettingsContext.Provider value={{lifeTotal, setLifeTotal, playerCount, setPlayerCount}}>
         <Menu/>
       </SettingsContext.Provider>
-      {/* TODO add players relative to the number added in the settings */}
-      <Player 
-        lifeTotal={lifeTotal}
-        defaultPlayerName={"Player 1"}
-      />
+      {makePlayers(playerCount)}
     </StyledApp>
   );
 }

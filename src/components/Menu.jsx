@@ -25,7 +25,10 @@ const MenuModal = (props) => {
     return (
         <StyledMenuModal onClick={props.onClick}>
             <div className='menu' onClick={e => e.stopPropagation()}>
-                <Settings />
+                <Settings 
+                    menuOpen={props.menuOpen}
+                    setMenuOpen={props.setMenuOpen}
+                />
             </div>
         </StyledMenuModal>
     )
@@ -46,7 +49,8 @@ export const Menu = (props) => {
             <button onClick={() => toggleMenuOpen()}>MENU</button>
             {menuOpen ? 
                 <MenuModal 
-                    isOpen={menuOpen}
+                    menuOpen={menuOpen}
+                    setMenuOpen={setMenuOpen}
                     onClick={() => {setMenuOpen(false)}}/> 
                 : null}
         </StyledMenu>

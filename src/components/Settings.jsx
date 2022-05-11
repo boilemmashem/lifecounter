@@ -6,11 +6,11 @@ import { SettingsContext } from './App'
 const StyledSettings = styled.div`
     
 `
-export const Settings = () => {
+export const Settings = (props) => {
     const contextValue = React.useContext(SettingsContext);
 
 
-    const saveChanges = () => {
+    const saveChanges = (props) => {
         // Get fetch the values from the input boxes and store them in the Settings state.
         // Store the new values into localstorage
         const settingsLifeTotal = parseInt(document.getElementById("settingsLifeTotal").value)
@@ -23,9 +23,14 @@ export const Settings = () => {
         window.localStorage.setItem("playerCount", settingsPlayerCount)
     }
 
+    const closeMenu = () => {
+        props.setMenuOpen(!props.menuOpen);
+    }
+
 
     return (
         <StyledSettings>
+            <button onClick={() => closeMenu()}>Close Menu</button>
             <menu>
                 <li>
                     <label htmlFor="settingsLifeTotal">Starting Life total</label>
@@ -41,7 +46,7 @@ export const Settings = () => {
                     </select>
                 </li>
             </menu>
-            <button onClick={() => saveChanges()}>Save Changes</button>
+            <button onClick={() => {saveChanges(); closeMenu()}}>Save &amp; Close</button>
         </StyledSettings>
     )
 }
