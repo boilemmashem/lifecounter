@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { SettingsContext } from './App'
+import { saveLocal } from '../saveLocal'
 
 const StyledNewGame = styled.div`
     position: fixed;
@@ -31,10 +32,11 @@ export const NewGameModal = (props) => {
         settings.setStartingLifeTotal(newGameStartingLifeTotal);
         settings.setNewGameOpen(false);
 
-        // Update the settingsObj and push it back to localStorage
+        // Update the settingsObj and save it to localStorage
         settings.settingsObj.playerCount = newGamePlayerCount;
+        saveLocal('playerCount', newGamePlayerCount)
         settings.settingsObj.startingLifeTotal = newGameStartingLifeTotal;
-        window.localStorage.setItem('settingsObj', JSON.stringify(settings.settingsObj));
+        saveLocal('startingLifeTotal', newGameStartingLifeTotal)
 
     }
 
