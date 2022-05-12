@@ -6,7 +6,12 @@ const StyledPlayer = styled.section`
     
 `
 export const Player = (props) => {
-    const hasCustomPlayerName = loadLocal()[`Player ${props.playerNo}`]
+    
+    // Check to see if there's any playerName in localStorage, if so load the settings key into hasCustomPlayerName 
+    let hasCustomPlayerName = null;
+    if(loadLocal().hasOwnProperty(`Player ${props.playerNo}`)) {
+        hasCustomPlayerName = loadLocal()[`Player ${props.playerNo}`]
+    }
 
     const [playerLifeTotal, setPlayerLifeTotal] = useState(props.startingLifeTotal);
     const [playerName, setPlayerName] = useState(hasCustomPlayerName ? hasCustomPlayerName : props.defaultPlayerName);
