@@ -13,10 +13,9 @@ export function App() {
   // Fetch settings from previous session in localStorage
   const getSettingsObj = JSON.parse(localStorage.getItem('settingsObj'))
   const [settingsObj, setSettingsObj] = useState(getSettingsObj ? getSettingsObj : {})
-
   
-  const [playerCount, setPlayerCount] = useState(settingsObj[0]? settingsObj.playerCount : 1)
-  const [startingLifeTotal, setStartingLifeTotal] = useState(settingsObj[0]? settingsObj.startingLifeTotal : 40)
+  const [playerCount, setPlayerCount] = useState(getSettingsObj? settingsObj.playerCount : 1)
+  const [startingLifeTotal, setStartingLifeTotal] = useState(getSettingsObj? settingsObj.startingLifeTotal : 40)
   const [newGameOpen, setNewGameOpen] = useState(true)
 
   const addPlayers = (numOfPlayers) => {
@@ -24,7 +23,7 @@ export function App() {
     for(let i = 1; i <= numOfPlayers; i++) {
       playersArr.push(
         <Player
-          lifeTotal={startingLifeTotal} 
+          startingLifeTotal={startingLifeTotal} 
           defaultPlayerName={`Player ${i}`}
           key={`player${i}`} 
         />
