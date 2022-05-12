@@ -18,8 +18,8 @@ const StyledNewGame = styled.div`
         max-width: 90%;
     }
 `
-export const NewGameModal = () => {
-    // Get app settings from global context
+export const NewGameModal = (props) => {
+    // Get app settings from App context
     const settings = React.useContext(SettingsContext)
     
     const startNewGame = () => {
@@ -30,6 +30,11 @@ export const NewGameModal = () => {
         settings.setPlayerCount(newGamePlayerCount);
         settings.setStartingLifeTotal(newGameStartingLifeTotal);
         settings.setNewGameOpen(false);
+
+        // Update the settingsObj and push it back to localStorage
+        settings.settingsObj.playerCount = newGamePlayerCount;
+        settings.settingsObj.startingLifeTotal = newGameStartingLifeTotal;
+        window.localStorage.setItem('settingsObj', JSON.stringify(settings.settingsObj));
 
     }
 
