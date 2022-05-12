@@ -8,6 +8,11 @@ const saveLocal = (key, value) => {
 }
 
 // Load dem values
-const loadLocal = () => JSON.parse(localStorage.getItem('settingsObj'));
+const loadLocal = () => {
+   if(JSON.parse(localStorage.getItem('settingsObj')) === null) {
+      return {}
+   }
+   return JSON.parse(localStorage.getItem('settingsObj'))
+};
 
 export {saveLocal, loadLocal}
