@@ -1,13 +1,15 @@
 import React, {useState} from 'react'
 import styled from 'styled-components'
-import {saveLocal} from '../saveLocal'
+import {saveLocal, loadLocal} from '../localHelper'
 
 const StyledPlayer = styled.section`
     
 `
 export const Player = (props) => {
+    const hasCustomPlayerName = loadLocal()[`Player ${props.playerNo}`]
+
     const [playerLifeTotal, setPlayerLifeTotal] = useState(props.startingLifeTotal);
-    const [playerName, setPlayerName] = useState(props.defaultPlayerName);
+    const [playerName, setPlayerName] = useState(hasCustomPlayerName ? hasCustomPlayerName : props.defaultPlayerName);
 
     const addPlayerLife = (num) => {
         setPlayerLifeTotal(playerLifeTotal + num)
@@ -20,7 +22,9 @@ export const Player = (props) => {
                 <span>{playerLifeTotal}</span>
                 <button className="lifeTotalPlus" onClick={() => addPlayerLife(1)}>+1</button>
             </div>
-            <input type="text" className="playerName" value={playerName} onChange={(e) => setPlayerName(e.target.value)}/>
+            <input type="text" className="playerName" value={playerName} 
+                onChange={(e) => {setPlayerName(e.target.value); saveLocal(props.defaultPlayerName, e.target.value)}}
+            />
         </StyledPlayer>
     )
 }

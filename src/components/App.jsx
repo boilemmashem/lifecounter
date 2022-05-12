@@ -25,6 +25,7 @@ export function App() {
         <Player
           startingLifeTotal={startingLifeTotal} 
           defaultPlayerName={`Player ${i}`}
+          playerNo={i}
           key={`player${i}`} 
         />
       )

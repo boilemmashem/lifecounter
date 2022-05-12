@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { SettingsContext } from './App'
-import { saveLocal } from '../saveLocal'
+import { saveLocal } from '../localHelper'
 
 const StyledNewGame = styled.div`
     position: fixed;
