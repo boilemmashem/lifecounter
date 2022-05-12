@@ -1,3 +1,6 @@
+# TODO
+setting starting life total to 35 then refresh the page and set it to 25
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

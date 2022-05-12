@@ -9,13 +9,9 @@ export const SettingsContext = React.createContext();
 const StyledApp = styled.div`
 `
 export function App() {
-
-  // Fetch settings from previous session in localStorage
-  const getSettingsObj = JSON.parse(localStorage.getItem('settingsObj'))
-  const [settingsObj, setSettingsObj] = useState(getSettingsObj ? getSettingsObj : {})
   
-  const [playerCount, setPlayerCount] = useState(getSettingsObj? settingsObj.playerCount : 1)
-  const [startingLifeTotal, setStartingLifeTotal] = useState(getSettingsObj? settingsObj.startingLifeTotal : 40)
+  const [playerCount, setPlayerCount] = useState(0)
+  const [startingLifeTotal, setStartingLifeTotal] = useState(40)
   const [newGameOpen, setNewGameOpen] = useState(true)
 
   const addPlayers = (numOfPlayers) => {
@@ -36,9 +32,9 @@ export function App() {
   return (
     <StyledApp>
       <SettingsContext.Provider value={{
-        playerCount, setPlayerCount, startingLifeTotal, setStartingLifeTotal, newGameOpen, setNewGameOpen, settingsObj, setSettingsObj
+        playerCount, setPlayerCount, startingLifeTotal, setStartingLifeTotal, newGameOpen, setNewGameOpen
       }}>
-        <NewGameModal settingsObj={settingsObj}/>
+        <NewGameModal/>
       </SettingsContext.Provider>
       {addPlayers(playerCount)}
     </StyledApp>
