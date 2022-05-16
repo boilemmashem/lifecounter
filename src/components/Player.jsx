@@ -1,5 +1,6 @@
 import React, {useState} from 'react'
 import styled from 'styled-components'
+import { ColorSelector } from './ColorSelector'
 
 
 // TODO Pass player props into background
@@ -19,6 +20,7 @@ export const Player = (props) => {
 
     return (
         <StyledPlayer className={`player${props.playerNo}`} playerColor={playerBGColor} contrastColor={playerContrastColor}>
+            <ColorSelector />
             <div>
                 <button className="lifeTotalMinus" onClick={() => addPlayerLife(-1)}>-1</button>
                 <span>{playerLifeTotal}</span>
