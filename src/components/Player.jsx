@@ -11,16 +11,22 @@ const StyledPlayer = styled.section`
 export const Player = (props) => {
     const [playerLifeTotal, setPlayerLifeTotal] = useState(props.startingLifeTotal);
     const [playerName, setPlayerName] = useState(props.defaultPlayerName);
-    const [playerBGColor, setPlayerColor] = useState(props.playerColors[0])
+    const [playerBGColor, setPlayerBGColor] = useState(props.playerColors[0])
     const [playerContrastColor, setPlayerContrastColor] = useState(props.playerColors[1])
+    const [colorSelectorOpen, setIsColorSelectorOpen] = useState(false)
 
     const addPlayerLife = (num) => {
         setPlayerLifeTotal(playerLifeTotal + num)
     }
 
+    function toggleColorSelector() {
+        setIsColorSelectorOpen(!colorSelectorOpen)
+    }
+
+
+
     return (
         <StyledPlayer className={`player${props.playerNo}`} playerColor={playerBGColor} contrastColor={playerContrastColor}>
-            <ColorSelector />
             <div>
                 <button className="lifeTotalMinus" onClick={() => addPlayerLife(-1)}>-1</button>
                 <span>{playerLifeTotal}</span>
@@ -31,6 +37,12 @@ export const Player = (props) => {
                     onChange={(e) => setPlayerName(e.target.value)}
                 />
             </div>
+            <ColorSelector 
+                isOpen={colorSelectorOpen} 
+                setPlayerBGColor={(e) => setPlayerBGColor(e)}
+                toggleOpen={() => toggleColorSelector()}
+            />
+            {colorSelectorOpen ? null : <button onClick={() => toggleColorSelector()}>colors</button>}
         </StyledPlayer>
     )
 }
