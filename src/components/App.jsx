@@ -19,19 +19,16 @@ export function App() {
     let playersArr = []
     let chosenColors = []
 
-    // TODO fix this so it returns a new value each time
     const getNewPlayerColor = () => {
       let newColor = getRandomColor();
-      // If newColor has already been chosen return a different one
+      // If newColor has already been chosen, execute a recursive call to select another
       if(chosenColors.includes(newColor)) {
-        getNewPlayerColor();
-        chosenColors.push(newColor);
-        return newColor;
+        return getNewPlayerColor();
       }
-      chosenColors.push(newColor); // add it to the list
+      // colour has not been selected before so push it to the list and return it
+      chosenColors.push(newColor);
       return newColor;
     }
-    // end TODO
 
     for(let i = 1; i <= numOfPlayers; i++) {
       
