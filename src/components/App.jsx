@@ -29,6 +29,7 @@ export function App() {
       chosenColors.push(newColor);
       return newColor;
     }
+    console.log(chosenColors);
 
     for(let i = 1; i <= numOfPlayers; i++) {
       
@@ -37,12 +38,11 @@ export function App() {
         startingLifeTotal={startingLifeTotal} 
         defaultPlayerName={`Player ${i}`}
         playerNo={i}
-        playerColor={getNewPlayerColor()}
+        playerColors={getNewPlayerColor()}
         key={`player${i}`} 
         />
         )
       }
-    console.log(chosenColors);
     return playersArr;
   }
 

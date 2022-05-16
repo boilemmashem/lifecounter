@@ -1,6 +1,5 @@
 import React, {useState} from 'react'
 import styled from 'styled-components'
-import {getContrastColor} from '../data/getColor'
 
 
 // TODO Pass player props into background
@@ -11,14 +10,15 @@ const StyledPlayer = styled.section`
 export const Player = (props) => {
     const [playerLifeTotal, setPlayerLifeTotal] = useState(props.startingLifeTotal);
     const [playerName, setPlayerName] = useState(props.defaultPlayerName);
-    const [playerColor, setPlayerColor] = useState(props.playerColor)
+    const [playerBGColor, setPlayerColor] = useState(props.playerColors[0])
+    const [playerContrastColor, setPlayerContrastColor] = useState(props.playerColors[1])
 
     const addPlayerLife = (num) => {
         setPlayerLifeTotal(playerLifeTotal + num)
     }
 
     return (
-        <StyledPlayer className={`player${props.playerNo}`} playerColor={playerColor} contrastColor={getContrastColor(playerColor)}>
+        <StyledPlayer className={`player${props.playerNo}`} playerColor={playerBGColor} contrastColor={playerContrastColor}>
             <div>
                 <button className="lifeTotalMinus" onClick={() => addPlayerLife(-1)}>-1</button>
                 <span>{playerLifeTotal}</span>

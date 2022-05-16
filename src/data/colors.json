@@ -1,12 +1,12 @@
 {
-    "navy" : "#143F6B",
-    "red" : "#F55353",
-    "orange" : "#FEB139",
-    "yellow" : "#F6F54D",
-    "purple" : "#9145B6",
-    "peach" : "#FF5677",
-    "teal" : "#4FBDBA",
-    "duckegg" : "#11999E",
-    "slate" : "#40514E",
-    "blossom" : "#FFBCBC"
+    "gunmetal" : ["#292F36", "#fff"],
+    "myrtle green" : ["#3C7E7D", "#fff"],
+    "medium turquoise" : ["#4ECDC4", "#000"],
+    "tropical sea" : ["#A3E6DE", "#000"],
+    "mint cream" : ["#F7FFF7", "#000"],
+    "light coral" : ["#FFE66D", "#000"],
+    "blossom" : ["#FBB5B1", "#000"],
+    "strawberry" : ["#FF6B6B", "#000"],
+    "sandy brown" : ["#FFA96C", "#fff"],
+    "yellow" : ["#FFE66D", "#000"]
 }

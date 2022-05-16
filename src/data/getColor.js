@@ -11,10 +11,3 @@ export const getRandomColor = () => {
     }
     return colorValues[getRandomIntInclusive(0, numOfColors)]
 }
-
-// Return black or white in contrast to the passed value
-export const getContrastColor = (hexcolor) => {
-    const removeHash = hexcolor.charAt(0) === '#' ? hexcolor.slice(1) : hexcolor
-    // parse the hexcolour as base 16 and decide on light half or dark half
-    return (parseInt(removeHash, 16) > 0xffffff/2) ? '#000':'#FFF';
-}
