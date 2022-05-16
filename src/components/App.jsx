@@ -22,14 +22,13 @@ export function App() {
     const getNewPlayerColor = () => {
       let newColor = getRandomColor();
       // If newColor has already been chosen, execute a recursive call to select another
-      if(chosenColors.includes(newColor)) {
+      if(chosenColors.includes(newColor[0])) {
         return getNewPlayerColor();
       }
       // colour has not been selected before so push it to the list and return it
-      chosenColors.push(newColor);
+      chosenColors.push(newColor[0]);
       return newColor;
     }
-    console.log(chosenColors);
 
     for(let i = 1; i <= numOfPlayers; i++) {
       

@@ -7,6 +7,6 @@
     "light coral" : ["#FFE66D", "#000"],
     "blossom" : ["#FBB5B1", "#000"],
     "strawberry" : ["#FF6B6B", "#000"],
-    "sandy brown" : ["#FFA96C", "#fff"],
+    "sandy brown" : ["#FFA96C", "#000"],
     "yellow" : ["#FFE66D", "#000"]
 }
