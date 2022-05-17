@@ -40,6 +40,7 @@ export const Player = (props) => {
             <ColorSelector 
                 isOpen={colorSelectorOpen} 
                 setPlayerBGColor={(e) => setPlayerBGColor(e)}
+                setPlayerContrastColor={(e) => setPlayerContrastColor(e)}
                 toggleOpen={() => toggleColorSelector()}
             />
             {colorSelectorOpen ? null : <button onClick={() => toggleColorSelector()}>colors</button>}
