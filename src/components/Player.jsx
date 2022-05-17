@@ -7,6 +7,7 @@ import { ColorSelector } from './ColorSelector'
 const StyledPlayer = styled.section`
     background: ${props => props.playerColor};
     color: ${props => props.contrastColor};
+    input { width: 100% }
 `
 export const Player = (props) => {
     const [playerLifeTotal, setPlayerLifeTotal] = useState(props.startingLifeTotal);
