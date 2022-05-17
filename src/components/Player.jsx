@@ -27,7 +27,6 @@ export const Player = (props) => {
     })
 
     function lifeHandler(num) {
-        console.log('adding life');
         setPlayerLifeTotal(playerLifeTotal + num)
     }
     function toggleColorSelector() {

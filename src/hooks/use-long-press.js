@@ -5,7 +5,6 @@ export function useLongPress({onClick, onLongPress} = {}) {
     const isLongPress = useRef(false);
 
     function handleOnClick() {
-        console.log('handleOnClick');
         if (isLongPress.current) {
             return;
         }
@@ -14,25 +13,20 @@ export function useLongPress({onClick, onLongPress} = {}) {
         }
     }
     function handleLongPress() {
-        console.log('it\'s a long press')
         if(typeof onLongPress === 'function') {
             onLongPress();
         }
     }
     function handleOnMouseDown() {
         startPressTimer();
-        console.log('handleOnMouseDown');
     }
     function handleOnMouseUp() {
-        console.log('handleOnMouseUp');
         clearTimeout(timerRef.current)
     }
     function handleOnTouchStart() {
         startPressTimer();
-        console.log('handleOnTouchStart');
     }
     function handleOnTouchEnd() {
-        console.log('handleOnTouchEnd');
         clearTimeout(timerRef.current)
     }
 
