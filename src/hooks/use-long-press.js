@@ -49,7 +49,6 @@ export function useLongPress({onClick, onLongPress} = {}) {
     return {
         btnHandlers: {
             onClick: handleOnClick,
-            onLongPress: handleLongPress,
             onMouseDown: handleOnMouseDown,
             onMouseUp: handleOnMouseUp,
             onTouchStart: handleOnTouchStart,

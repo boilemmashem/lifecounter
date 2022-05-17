@@ -16,33 +16,33 @@ export const Player = (props) => {
     const [playerBGColor, setPlayerBGColor] = useState(props.playerColors[0])
     const [playerContrastColor, setPlayerContrastColor] = useState(props.playerColors[1])
     const [colorSelectorOpen, setIsColorSelectorOpen] = useState(false)
+
     const {btnHandlers} = useLongPress({
-        onClick: addOneLife,
-        onLongPress: addTenLife
+        onClick: () => lifeHandler(1),
+        onLongPress: () => lifeHandler(10)
     });
-    
-    function addOneLife() {
-        console.log('adding one life...')
-        setPlayerLifeTotal(playerLifeTotal + 1)
+    const {btnHandlers: subtractBtnHandlers} = useLongPress({
+        onClick: () => lifeHandler(-1),
+        onLongPress: () => lifeHandler(-10)
+    })
+
+    function lifeHandler(num) {
+        console.log('adding life');
+        setPlayerLifeTotal(playerLifeTotal + num)
     }
-    function addTenLife() {
-        console.log('ten life...')
-        setPlayerLifeTotal(playerLifeTotal + 10)
-    }
-    
     function toggleColorSelector() {
         setIsColorSelectorOpen(!colorSelectorOpen)
-    }
-
-    const addPlayerLife = (num) => {
-        setPlayerLifeTotal(playerLifeTotal + num)
     }
 
 
     return (
         <StyledPlayer className={`player${props.playerNo}`} playerColor={playerBGColor} contrastColor={playerContrastColor}>
             <div>
-                <button className="lifeTotalMinus" onClick={() => addPlayerLife(-1)}>-1</button>
+                <button
+                    {...subtractBtnHandlers}
+                >
+                    -1
+                </button>
                 <span>{playerLifeTotal}</span>
                 <button
                     {...btnHandlers}
