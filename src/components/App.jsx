@@ -3,35 +3,43 @@ import styled from 'styled-components'
 import {NewGameModal} from './NewGameModal'
 import {Player} from './Player'
 import { getRandomColor } from '../data/getColor'
+import { SettingsModal } from './SettingsModal'
 
 // Create a context to hold global settings
 export const SettingsContext = React.createContext();
 
 const StyledApp = styled.div`
-  .playerCount1 { 
+  .playerArea.playerCount1 { 
     display: flex; 
     flex-direction: column;
     height: 100vh;
     section { height: 100%; }
   }
-  .playerCount2 { 
+  .playerArea.playerCount2 { 
     display: flex;
     flex-direction: column;
     height: 100vh;
     section { flex: 1 }
   }
-  .playerCount3 { 
+  .playerArea.playerCount3 { 
     display: flex;
     flex-flow: row wrap;
     height: 100vh;
     section { flex-basis: 50% }
     section:last-child {flex-basis: 100%}
   }
-  .playerCount4 { 
+  .playerArea.playerCount4 { 
     display: flex;
     flex-flow: row wrap;
     height: 100vh;
     section { flex-basis: 50% }
+  }
+  .menu.playerCount2, .menu.playerCount3, .menu.playerCount4  {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    border-radius: 100rem;
+    border: none;
   }
 `
 export function App() {
@@ -39,6 +47,7 @@ export function App() {
   const [playerCount, setPlayerCount] = useState(0)
   const [startingLifeTotal, setStartingLifeTotal] = useState(40)
   const [newGameOpen, setNewGameOpen] = useState(true)
+  const [settingsOpen, setSettingsOpen] = useState(false)
   
   const addPlayers = (playerCount) => {
     let playersArr = []
@@ -73,13 +82,15 @@ export function App() {
   return (
     <StyledApp>
       <SettingsContext.Provider value={{
-        playerCount, setPlayerCount, startingLifeTotal, setStartingLifeTotal, newGameOpen, setNewGameOpen
+        playerCount, setPlayerCount, startingLifeTotal, setStartingLifeTotal, newGameOpen, setNewGameOpen, settingsOpen, setSettingsOpen
       }}>
         <NewGameModal/>
+        <SettingsModal />
       </SettingsContext.Provider>
       <main className={`playerArea playerCount${playerCount}`}>
         {addPlayers(playerCount)}
       </main>
+      <button className={`menu playerCount${playerCount}`} onClick={() => setSettingsOpen(true)}>menu</button>
     </StyledApp>
   );
 }

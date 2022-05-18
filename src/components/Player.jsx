@@ -9,6 +9,8 @@ const StyledPlayer = styled.section`
     background: ${props => props.playerColor};
     color: ${props => props.contrastColor};
     input { width: 100% }
+    .playerLifeArea {
+    }
 `
 export const Player = (props) => {
     const [playerLifeTotal, setPlayerLifeTotal] = useState(props.startingLifeTotal);
@@ -36,7 +38,7 @@ export const Player = (props) => {
 
     return (
         <StyledPlayer className={`player${props.playerNo}`} playerColor={playerBGColor} contrastColor={playerContrastColor}>
-            <div>
+            <div className="playerLifeArea">
                 <button
                     {...subtractBtnHandlers}
                 >
