@@ -3,9 +3,15 @@ import styled from 'styled-components'
 import Colors from '../data/colors.json'
 
 const StyledColorSelector = styled.div`
+    display: flex;
+    flex-flow: row wrap;
+    gap: 0.75rem;
+    justify-content: center;
     button {
-        border: 2px solid rgba(255,255,255, 0.2);
+        border: 2px solid rgba(255,255,255, 0.4);
         border-radius: 100rem;
+        width: 1.5rem;
+        height: 1.5rem;
     }
 `
 export const ColorSelector = (props) => {
@@ -29,7 +35,6 @@ export const ColorSelector = (props) => {
                         props.toggleOpen(); // Close color selection
                     }}
                 >
-                        {colorArr[i][0]}
                 </button>
             )
         }

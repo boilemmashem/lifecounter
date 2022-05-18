@@ -4,9 +4,9 @@
     "medium turquoise" : ["#4ECDC4", "#000"],
     "tropical sea" : ["#A3E6DE", "#000"],
     "tea green" : ["#C3E8BD", "#000"],
-    "coral" : ["#CA5C60", "#000"],
     "blossom" : ["#FBB5B1", "#000"],
     "strawberry" : ["#FF6B6B", "#000"],
+    "coral" : ["#CA5C60", "#000"],
     "sandy brown" : ["#FFA96C", "#000"],
     "yellow" : ["#FFE66D", "#000"]
 }
