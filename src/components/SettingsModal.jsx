@@ -27,11 +27,13 @@ export const SettingsModal = (props) => {
                     {props.wakeLockSupport ? 
                         <div>
                             <label htmlFor="wakeLockMode">Keep screen awake</label>
-                            <input id="wakeLockMode"type="checkbox" onChange={() => settings.setWakeLockMode(!settings.screenAwakeMode)} checked={settings.screenAwakeMode}/> 
+                            <input id="wakeLockMode"type="checkbox" onChange={() => settings.setWakeLockMode(!settings.wakeLockMode)} checked={settings.wakeLockMode}/> 
                         </div>
                         : 
                         <div>
-                            <label className='disabledFeature'>Keep screen awake</label>
+                            <label className='disabledFeature'>Keep screen awake<br />
+                                <small>This feature is not available on your device.</small>
+                            </label>
                             <input type="checkbox" disabled/>
                         </div>
                     }

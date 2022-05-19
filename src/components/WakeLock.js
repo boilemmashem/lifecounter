@@ -20,7 +20,7 @@ export const WakeLock = (isEnabled) => {
             // So lets turn it back on when the user comes back.
             const handleVisibilityChange = async () => {
                 if (wakeLock !== null && document.visibilityState === 'visible') {
-                    // console.log('we are visible again');
+                    // await promise response
                     await requestWakeLock();
                 }
               };
@@ -30,10 +30,10 @@ export const WakeLock = (isEnabled) => {
 
           
     } else if('wakeLock' in navigator) {
-        console.log('wakeLock is avalible but not turned on')
+        // console.log('wakeLock is avalible but not turned on')
         return true
     } else {
-        console.log('WakeLock not available')
+        // console.log('WakeLock not available')
         return false
     }
 }

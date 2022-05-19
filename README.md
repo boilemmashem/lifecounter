@@ -1,5 +1,6 @@
 # TODO
-Look into long press button options for adding or removing health
-    - remove react warning for custom DOM props
-    - add +10 and -10 options for button triggers
-Dynamic arrangement based on number of players
+**test wakelock setting**
+Finish other settings features
+
+## Notes
+[Wakelock browser api](https://web.dev/wake-lock/) (to keep the screen awake) is only available through HTTPS, to test locally start with `HTTPS=true npm start`.

@@ -58,9 +58,9 @@ export function App() {
   // Enable wakeLockMode for supported devices
   let wakeLockSupport = true;
   if(!WakeLock()) {
-    console.log('wakelock not supported')
     wakeLockSupport = false;
   }
+  WakeLock(wakeLockMode);
 
   
   const addPlayers = (playerCount) => {
