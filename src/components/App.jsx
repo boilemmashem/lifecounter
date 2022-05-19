@@ -53,7 +53,7 @@ export function App() {
 
   const [landscapeMode, setLandscapeMode] = useState(false);
   const [fullscreenMode, setFullscreenMode] = useState(false);
-  const [wakeLockMode, setWakeLockMode] = useState(true);
+  const [wakeLockMode, setWakeLockMode] = useState(false);
   
   // Enable wakeLockMode for supported devices
   let wakeLockSupport = true;

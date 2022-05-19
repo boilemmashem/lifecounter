@@ -30,6 +30,7 @@ export const NewGameModal = (props) => {
         settings.setPlayerCount(newGamePlayerCount);
         settings.setStartingLifeTotal(newGameStartingLifeTotal);
         settings.setNewGameOpen(false);
+        settings.setWakeLockMode(true);
     }
 
     if(settings.newGameOpen) {
