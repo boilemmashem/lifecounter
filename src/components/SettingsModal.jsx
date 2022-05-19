@@ -14,7 +14,7 @@ const StyledSettingsModal = styled.div`
     justify-content: center;
     align-items: center;
 `
-export const SettingsModal = () => {
+export const SettingsModal = (props) => {
     // Get app settings from App context
     const settings = React.useContext(SettingsContext);
 
@@ -24,14 +24,24 @@ export const SettingsModal = () => {
             <StyledSettingsModal>
                 <menu>
                     <button onClick={() => settings.setSettingsOpen(false)}>close settings</button>
+                    {props.wakeLockSupport ? 
+                        <div>
+                            <label htmlFor="wakeLockMode">Keep screen awake</label>
+                            <input id="wakeLockMode"type="checkbox" onChange={() => settings.setWakeLockMode(!settings.screenAwakeMode)} checked={settings.screenAwakeMode}/> 
+                        </div>
+                        : 
+                        <div>
+                            <label className='disabledFeature'>Keep screen awake</label>
+                            <input type="checkbox" disabled/>
+                        </div>
+                    }
                     <div>
-                        <label>Keep screen awake</label><input type="checkbox" />
+                        <label htmlFor="fullscreenMode">Fullscreen Mode</label>
+                        <input id="fullscreenMode" type="checkbox" onChange={() => settings.setFullscreenMode(!settings.fullscreenMode)} checked={settings.fullscreenMode} />
                     </div>
                     <div>
-                        <label>Fullscreen Mode</label><input type="checkbox" />
-                    </div>
-                    <div>
-                        <label>Landscape mode<br /><small>Rotate the board 90&deg;</small></label><input type="checkbox" />
+                        <label htmlFor="landscapeMode">Landscape mode</label>
+                        <input id="landscapeMode" type="checkbox" onChange={() => settings.setLandscapeMode(!settings.landscapeMode)} checked={settings.landscapeMode} />
                     </div>
                     <div>
                         <button>Reset Game</button>

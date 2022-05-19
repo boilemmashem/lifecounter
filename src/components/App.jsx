@@ -5,6 +5,8 @@ import {Player} from './Player'
 import { getRandomColor } from '../data/getColor'
 import { SettingsModal } from './SettingsModal'
 
+import { WakeLock } from './WakeLock'
+
 // Create a context to hold global settings
 export const SettingsContext = React.createContext();
 
@@ -48,6 +50,18 @@ export function App() {
   const [startingLifeTotal, setStartingLifeTotal] = useState(40)
   const [newGameOpen, setNewGameOpen] = useState(true)
   const [settingsOpen, setSettingsOpen] = useState(false)
+
+  const [landscapeMode, setLandscapeMode] = useState(false);
+  const [fullscreenMode, setFullscreenMode] = useState(false);
+  const [wakeLockMode, setWakeLockMode] = useState(true);
+  
+  // Enable wakeLockMode for supported devices
+  let wakeLockSupport = true;
+  if(!WakeLock()) {
+    console.log('wakelock not supported')
+    wakeLockSupport = false;
+  }
+
   
   const addPlayers = (playerCount) => {
     let playersArr = []
@@ -82,10 +96,10 @@ export function App() {
   return (
     <StyledApp>
       <SettingsContext.Provider value={{
-        playerCount, setPlayerCount, startingLifeTotal, setStartingLifeTotal, newGameOpen, setNewGameOpen, settingsOpen, setSettingsOpen
+        playerCount, setPlayerCount, startingLifeTotal, setStartingLifeTotal, newGameOpen, setNewGameOpen, settingsOpen, setSettingsOpen, landscapeMode, setLandscapeMode, fullscreenMode, setFullscreenMode, wakeLockMode, setWakeLockMode
       }}>
         <NewGameModal/>
-        <SettingsModal />
+        <SettingsModal wakeLockSupport={wakeLockSupport}/>
       </SettingsContext.Provider>
       <main className={`playerArea playerCount${playerCount}`}>
         {addPlayers(playerCount)}
