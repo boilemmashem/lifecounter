@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { SettingsContext } from './App'
-import { useFullscreen } from '../hooks/use-fullscreen'
+import {fullscreenToggle } from '../helpers/fullscreenToggle'
 
 const StyledSettingsModal = styled.div`
     position: fixed;
@@ -22,10 +22,8 @@ export const SettingsModal = (props) => {
 
     function handleFullscreenCheckbox(e) {
         settings.setFullscreenMode(!settings.fullscreenMode)
-        console.log(e.target.checked)
+        fullscreenToggle(e.target.checked)
     }
-    useFullscreen(settings.fullscreenMode)
-
 
     if(settings.settingsOpen) {
         return (

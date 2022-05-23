@@ -1,6 +1,4 @@
 # TODO
-Fullscreen mode
-
 Landscape Mode
 
 ## Notes

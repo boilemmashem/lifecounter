@@ -1,4 +1,4 @@
-import colors from './colors'
+import colors from '../data/colors'
 
 // Return a random color value from colors.json 
 export const getRandomColor = () => {

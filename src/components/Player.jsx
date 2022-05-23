@@ -4,7 +4,6 @@ import { ColorSelector } from './ColorSelector'
 import { useLongPress } from '../hooks/use-long-press'
 
 
-// TODO Pass player props into background
 const StyledPlayer = styled.section`
     background: ${props => props.playerColor};
     color: ${props => props.contrastColor};

@@ -2,10 +2,10 @@ import React, { useState } from 'react'
 import styled from 'styled-components'
 import {NewGameModal} from './NewGameModal'
 import {Player} from './Player'
-import { getRandomColor } from '../data/getColor'
+import { getRandomColor } from '../helpers/getColor'
 import { SettingsModal } from './SettingsModal'
 
-import { WakeLock } from './WakeLock'
+import { WakeLock } from '../helpers/WakeLock'
 
 // Create a context to hold global settings
 export const SettingsContext = React.createContext();
