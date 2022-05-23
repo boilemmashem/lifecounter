@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { SettingsContext } from './App'
+import { useFullscreen } from '../hooks/use-fullscreen'
 
 const StyledSettingsModal = styled.div`
     position: fixed;
@@ -17,6 +18,13 @@ const StyledSettingsModal = styled.div`
 export const SettingsModal = (props) => {
     // Get app settings from App context
     const settings = React.useContext(SettingsContext);
+    
+
+    function handleFullscreenCheckbox(e) {
+        settings.setFullscreenMode(!settings.fullscreenMode)
+        console.log(e.target.checked)
+    }
+    useFullscreen(settings.fullscreenMode)
 
 
     if(settings.settingsOpen) {
@@ -32,14 +40,14 @@ export const SettingsModal = (props) => {
                         : 
                         <div>
                             <label className='disabledFeature'>Keep screen awake<br />
-                                <small>This feature is not available on your device.</small>
+                                <small>This feature is not available on your browser.</small>
                             </label>
                             <input type="checkbox" disabled/>
                         </div>
                     }
                     <div>
                         <label htmlFor="fullscreenMode">Fullscreen Mode</label>
-                        <input id="fullscreenMode" type="checkbox" onChange={() => settings.setFullscreenMode(!settings.fullscreenMode)} checked={settings.fullscreenMode} />
+                        <input id="fullscreenMode" type="checkbox" onChange={(e) => handleFullscreenCheckbox(e)} checked={settings.fullscreenMode} />
                     </div>
                     <div>
                         <label htmlFor="landscapeMode">Landscape mode</label>

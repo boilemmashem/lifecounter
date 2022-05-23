@@ -55,12 +55,12 @@ export function App() {
   const [fullscreenMode, setFullscreenMode] = useState(false);
   const [wakeLockMode, setWakeLockMode] = useState(false);
   
-  // Enable wakeLockMode for supported devices
-  let wakeLockSupport = true;
-  if(!WakeLock()) {
-    wakeLockSupport = false;
-  }
-  WakeLock(wakeLockMode);
+    // Enable wakeLockMode for supported devices
+    let wakeLockSupport = true;
+    if(!WakeLock()) {
+      wakeLockSupport = false;
+    }
+    WakeLock(wakeLockMode);
 
   
   const addPlayers = (playerCount) => {
