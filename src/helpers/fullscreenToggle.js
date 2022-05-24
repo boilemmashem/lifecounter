@@ -6,11 +6,3 @@ export const fullscreenToggle = (isEnabled) => {
         document.exitFullscreen();
     }
 }
-
-export const fullscreenListener = () => {
-    document.addEventListener('keydown', (e) => {
-        if(e.key === 'Escape' || e.key ==='1') {
-            fullscreenToggle(false);
-        }
-    })
-}
