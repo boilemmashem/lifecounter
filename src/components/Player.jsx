@@ -7,9 +7,6 @@ import { useLongPress } from '../hooks/use-long-press'
 const StyledPlayer = styled.section`
     background: ${props => props.playerColor};
     color: ${props => props.contrastColor};
-    input { width: 100% }
-    .playerLifeArea {
-    }
 `
 export const Player = (props) => {
     const [playerLifeTotal, setPlayerLifeTotal] = useState(props.startingLifeTotal);

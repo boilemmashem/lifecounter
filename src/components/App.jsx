@@ -11,38 +11,7 @@ import { WakeLock } from '../helpers/WakeLock'
 export const SettingsContext = React.createContext();
 
 const StyledApp = styled.div`
-  .playerArea.playerCount1 { 
-    display: flex; 
-    flex-direction: column;
-    height: 100vh;
-    section { height: 100%; }
-  }
-  .playerArea.playerCount2 { 
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
-    section { flex: 1 }
-  }
-  .playerArea.playerCount3 { 
-    display: flex;
-    flex-flow: row wrap;
-    height: 100vh;
-    section { flex-basis: 50% }
-    section:last-child {flex-basis: 100%}
-  }
-  .playerArea.playerCount4 { 
-    display: flex;
-    flex-flow: row wrap;
-    height: 100vh;
-    section { flex-basis: 50% }
-  }
-  .menu.playerCount2, .menu.playerCount3, .menu.playerCount4  {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    border-radius: 100rem;
-    border: none;
-  }
+// app styles
 `
 export function App() {
   
@@ -101,7 +70,7 @@ export function App() {
         <NewGameModal/>
         <SettingsModal wakeLockSupport={wakeLockSupport}/>
       </SettingsContext.Provider>
-      <main className={`playerArea playerCount${playerCount}`}>
+      <main className={`playerArea playerCount${playerCount} landscape${landscapeMode}`}>
         {addPlayers(playerCount)}
       </main>
       <button className={`menu playerCount${playerCount}`} onClick={() => setSettingsOpen(true)}>menu</button>
