@@ -12,6 +12,18 @@ export const SettingsContext = React.createContext();
 
 const StyledApp = styled.div`
 // app styles
+  margin: 0;
+  overflow: hidden;
+  .wrapper.landscapetrue {
+    transform: rotate(90deg);
+    transform-origin:bottom left;
+    position:absolute;
+    top: -100vw;
+    left: 0;
+    height:100vw;
+    width:100vh;
+    overflow:auto;
+  }
 `
 export function App() {
   
@@ -64,16 +76,18 @@ export function App() {
 
   return (
     <StyledApp>
-      <SettingsContext.Provider value={{
-        playerCount, setPlayerCount, startingLifeTotal, setStartingLifeTotal, newGameOpen, setNewGameOpen, settingsOpen, setSettingsOpen, landscapeMode, setLandscapeMode, fullscreenMode, setFullscreenMode, wakeLockMode, setWakeLockMode
-      }}>
-        <NewGameModal/>
-        <SettingsModal wakeLockSupport={wakeLockSupport}/>
-      </SettingsContext.Provider>
-      <main className={`playerArea playerCount${playerCount} landscape${landscapeMode}`}>
-        {addPlayers(playerCount)}
-      </main>
-      <button className={`menu playerCount${playerCount}`} onClick={() => setSettingsOpen(true)}>menu</button>
+      <div className={`wrapper landscape${landscapeMode}`}>
+        <SettingsContext.Provider value={{
+          playerCount, setPlayerCount, startingLifeTotal, setStartingLifeTotal, newGameOpen, setNewGameOpen, settingsOpen, setSettingsOpen, landscapeMode, setLandscapeMode, fullscreenMode, setFullscreenMode, wakeLockMode, setWakeLockMode
+        }}>
+          <NewGameModal/>
+          <SettingsModal wakeLockSupport={wakeLockSupport}/>
+        </SettingsContext.Provider>
+        <main className={`playerArea playerCount${playerCount}`}>
+          {addPlayers(playerCount)}
+        </main>
+        <button className={`menu playerCount${playerCount}`} onClick={() => setSettingsOpen(true)}>menu</button>
+        </div>
     </StyledApp>
   );
 }
