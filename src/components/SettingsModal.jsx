@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { SettingsContext } from './App'
-import {fullscreenToggle } from '../helpers/fullscreenToggle'
+import {fullscreenToggle, fullscreenListener } from '../helpers/fullscreenHelper'
 
 const StyledSettingsModal = styled.div`
     position: fixed;
@@ -24,22 +24,8 @@ export const SettingsModal = (props) => {
         settings.setFullscreenMode(!settings.fullscreenMode)
         fullscreenToggle(e.target.checked)
     }
-    // Listen for escape and F11 keypress to exit fullscreen
-    // The browser / OS tools can be used to exit fullscreen mode. We must check to see if fullscreen is active so we can set the correct state
-    function exitFullscreen(e) {
-        if(e.key === 'F11' || e.key === 'Escape') {
-            settings.setFullscreenMode(false)
-            fullscreenToggle(false)
-        }
-    }
-    document.addEventListener('keydown', e => exitFullscreen(e))
-    document.addEventListener('fullscreenchange', e => {
-        if (!document.fullscreenElement) {
-            // Runs when fullscreen is closed
-            settings.setFullscreenMode(false)
-            fullscreenToggle(false)
-        }
-    })
+    // Listen for fullscreen closing
+    fullscreenListener(settings.setFullscreenMode)
 
     if(settings.settingsOpen) {
         return (
