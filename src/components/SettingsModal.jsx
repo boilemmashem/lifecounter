@@ -54,8 +54,7 @@ export const SettingsModal = (props) => {
                         <input id="landscapeMode" type="checkbox" onChange={() => settings.setLandscapeMode(!settings.landscapeMode)} checked={settings.landscapeMode} />
                     </div>
                     <div>
-                        <button>Reset Game</button>
-                        <button>Save Game</button>
+                        <button onClick={() => window.location.reload(true)}>Reset Game</button>
                     </div>
                 </menu>
             </StyledSettingsModal>

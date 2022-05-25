@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import styled from 'styled-components'
 import {NewGameModal} from './NewGameModal'
 import {Player} from './Player'
+import {PlayerArea} from './PlayerArea'
 import { getRandomColor } from '../helpers/getColor'
 import { SettingsModal } from './SettingsModal'
 
@@ -43,36 +44,6 @@ export function App() {
     }
     WakeLock(wakeLockMode);
 
-  
-  const addPlayers = (playerCount) => {
-    let playersArr = []
-    let chosenColors = []
-
-    const getNewPlayerColor = () => {
-      let newColor = getRandomColor();
-      // If newColor has already been chosen, execute a recursive call to select another
-      if(chosenColors.includes(newColor[0])) {
-        return getNewPlayerColor();
-      }
-      // colour has not been selected before so push it to the list and return it
-      chosenColors.push(newColor[0]);
-      return newColor;
-    }
-
-    for(let i = 1; i <= playerCount; i++) {
-      
-      playersArr.unshift(
-        <Player
-        startingLifeTotal={startingLifeTotal} 
-        defaultPlayerName={`Player ${i}`}
-        playerNo={i}
-        playerColors={getNewPlayerColor()}
-        key={`player${i}`} 
-        />
-        )
-      }
-    return playersArr;
-  }
 
   return (
     <StyledApp>
@@ -83,9 +54,7 @@ export function App() {
           <NewGameModal/>
           <SettingsModal wakeLockSupport={wakeLockSupport}/>
         </SettingsContext.Provider>
-        <main className={`playerArea playerCount${playerCount}`}>
-          {addPlayers(playerCount)}
-        </main>
+        <PlayerArea playerCount={playerCount} startingLifeTotal={startingLifeTotal} className={`playerArea playerCount${playerCount}`} />
         <button className={`menu playerCount${playerCount}`} onClick={() => setSettingsOpen(true)}>menu</button>
         </div>
     </StyledApp>
