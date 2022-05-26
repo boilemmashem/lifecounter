@@ -7,6 +7,7 @@ import { useLongPress } from '../hooks/use-long-press'
 const StyledPlayer = styled.section`
     background: ${props => props.playerColor};
     color: ${props => props.contrastColor};
+    transition: background 1s;
     display: flex;
     flex-direction: column;
 
@@ -15,7 +16,7 @@ const StyledPlayer = styled.section`
         justify-content: center;
         gap: 1rem;
         padding: 1.5rem;
-        flex: 1;
+        flex-grow: 1;
         div {
             display: flex;
             flex-direction: column;
@@ -34,7 +35,7 @@ const StyledPlayer = styled.section`
     
     .playerName {
         color: ${props => props.contrastColor};
-        flex: 0.25;
+        flex-grow: 0.25;
         border: none;
         background: none;
         text-align: center;
@@ -59,7 +60,7 @@ const StyledPlayer = styled.section`
     }
 
     .playerOptionColor {
-        flex: 0.25;
+        flex-grow: 0.25;
         display: flex;
     }
 
@@ -70,7 +71,6 @@ const StyledPlayer = styled.section`
         width: 35%;
         background: 0;
         font-size: 2vw;
-        height: 8%;
     }
 
     `

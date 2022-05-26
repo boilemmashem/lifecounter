@@ -14,6 +14,7 @@ const StyledPlayerArea = styled.main`
   }
   &.playerCount2 {
     flex-direction: column;
+    section { height: 50% }
     section:nth-child(1) {
       border-bottom: var(--border-thickness) solid var(--border-color);
     }
@@ -22,6 +23,7 @@ const StyledPlayerArea = styled.main`
     }
   }
   &.playerCount3 {
+    section { height: 50% }
     flex-flow: row wrap;
     section { flex-basis: 50%; } // wrap after 2 sections
     section:nth-child(1) {
@@ -29,6 +31,7 @@ const StyledPlayerArea = styled.main`
       border-bottom: var(--border-thickness) solid var(--border-color);
     }
     section:nth-child(2) {
+      section { height: 50% }
       border-left: var(--border-thickness) solid var(--border-color);
       border-bottom: var(--border-thickness) solid var(--border-color);
     }
@@ -56,6 +59,20 @@ const StyledPlayerArea = styled.main`
       border-top: var(--border-thickness) solid var(--border-color);
     }
   }
+
+  // 2 Player Mode - Player 2 is upside down
+  &.playerCount2 .player2 {
+    transform: rotate(180deg);
+  }
+  // 3 Player Mode - Player 2 and 3 are upside down
+  &.playerCount3 .player2, &.playerCount3 .player3 {
+    transform: rotate(180deg);
+  }
+  // 4 Player Mode - Player 3 and 4 are upside down
+  &.playerCount4 .player3, &.playerCount4 .player4 {
+    transform: rotate(180deg);
+  }
+
 `
 export const PlayerArea = (props) => {
     

@@ -3,11 +3,17 @@ import styled from 'styled-components'
 import Colors from '../data/colors.json'
 
 const StyledColorSelector = styled.div`
+    width: 100%;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    gap: 0.8rem;
+    padding: 1rem 0;
     button {
-        display: inline-block;
-        border: none;
-        width: 1.5rem;
-        height: 1.5rem;
+        border: 2px solid rgba(255,255,255,0.2);
+        width: 2rem;
+        height: 2rem;
+        border-radius: 10rem;
     }
 `
 export const ColorSelector = (props) => {
