@@ -7,6 +7,20 @@ import { useLongPress } from '../hooks/use-long-press'
 const StyledPlayer = styled.section`
     background: ${props => props.playerColor};
     color: ${props => props.contrastColor};
+
+    .playerLifeArea {
+        display: flex;
+        justify-content: center;
+        height: 25%;
+    }
+
+    .playerName {
+        color: ${props => props.contrastColor};
+        border: none;
+        background: none;
+        width: 100%;
+        text-align: center;
+    }
 `
 export const Player = (props) => {
     const [playerLifeTotal, setPlayerLifeTotal] = useState(props.startingLifeTotal);
@@ -40,17 +54,17 @@ export const Player = (props) => {
                 >
                     -1
                 </button>
-                <span>{playerLifeTotal}</span>
+                <div>
+                    <span>{playerLifeTotal}</span>
+                    <input type="text" className="playerName" value={playerName} 
+                        onChange={(e) => setPlayerName(e.target.value)}
+                    />
+                </div>
                 <button
                     {...btnHandlers}
                 >
                     +1
                 </button>
-            </div>
-            <div>
-                <input type="text" className="playerName" value={playerName} 
-                    onChange={(e) => setPlayerName(e.target.value)}
-                />
             </div>
             <ColorSelector 
                 isOpen={colorSelectorOpen} 

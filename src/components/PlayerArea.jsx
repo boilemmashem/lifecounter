@@ -5,23 +5,56 @@ import { getRandomColor } from '../helpers/getColor'
 
 
 const StyledPlayerArea = styled.main`
+  --border-color: #444;
+  --border-thickness: 2.5px;
   display: flex;
   height: 100%;
   section {
     flex: 1;
   }
-  &.playerCount1 {
-  }
   &.playerCount2 {
     flex-direction: column;
+    section:nth-child(1) {
+      border-bottom: var(--border-thickness) solid var(--border-color);
+    }
+    section:nth-child(2) {
+      border-top: var(--border-thickness) solid var(--border-color);
+    }
   }
   &.playerCount3 {
     flex-flow: row wrap;
     section { flex-basis: 50%; } // wrap after 2 sections
+    section:nth-child(1) {
+      border-right: var(--border-thickness) solid var(--border-color);
+      border-bottom: var(--border-thickness) solid var(--border-color);
+    }
+    section:nth-child(2) {
+      border-left: var(--border-thickness) solid var(--border-color);
+      border-bottom: var(--border-thickness) solid var(--border-color);
+    }
+    section:nth-child(3) {
+      border-top: var(--border-thickness) solid var(--border-color);
+    }
   }
   &.playerCount4 {
     flex-flow: row wrap;
     section { flex-basis: 50%; } // wrap after 2 sections
+    section:nth-child(1) {
+      border-right: var(--border-thickness) solid var(--border-color);
+      border-bottom: var(--border-thickness) solid var(--border-color);
+    }
+    section:nth-child(2) {
+      border-left: var(--border-thickness) solid var(--border-color);
+      border-bottom: var(--border-thickness) solid var(--border-color);
+    }
+    section:nth-child(3) {
+      border-right: var(--border-thickness) solid var(--border-color);
+      border-top: var(--border-thickness) solid var(--border-color);
+    }
+    section:nth-child(4) {
+      border-left: var(--border-thickness) solid var(--border-color);
+      border-top: var(--border-thickness) solid var(--border-color);
+    }
   }
 `
 export const PlayerArea = (props) => {

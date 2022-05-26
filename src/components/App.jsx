@@ -11,7 +11,6 @@ import { WakeLock } from '../helpers/WakeLock'
 export const SettingsContext = React.createContext();
 
 const StyledApp = styled.div`
-
   margin: 0;
   .wrapper.landscapetrue {
     transform: rotate(90deg);
@@ -56,7 +55,7 @@ export function App() {
           <SettingsModal wakeLockSupport={wakeLockSupport}/>
         </SettingsContext.Provider>
         <PlayerArea playerCount={playerCount} startingLifeTotal={startingLifeTotal} className={`playerArea playerCount${playerCount}`} />
-        <MenuButton className={`menu playerCount${playerCount}`} onClick={() => setSettingsOpen(true)} landscapeMode={landscapeMode}/>
+        <MenuButton className={`menu playerCount${playerCount} landscapeMode${landscapeMode}`} onClick={() => setSettingsOpen(true)}/>
         </div>
     </StyledApp>
   );
