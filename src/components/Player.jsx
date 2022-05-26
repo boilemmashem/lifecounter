@@ -15,8 +15,8 @@ const StyledPlayer = styled.section`
         display: flex;
         justify-content: center;
         gap: 1rem;
-        padding: 1.5rem;
-        flex-grow: 1;
+        padding: 2vw;
+        flex: 1;
         div {
             display: flex;
             flex-direction: column;
@@ -35,13 +35,13 @@ const StyledPlayer = styled.section`
     
     .playerName {
         color: ${props => props.contrastColor};
-        flex-grow: 0.25;
+        flex: 0.25;
         border: none;
         background: none;
         text-align: center;
         display: block;
         width: 100%;
-        font-size: ${props => props.landscapeMode ? '4vh' : '4vw'};
+        font-size: ${props => props.landscapeMode ? '3vh' : '4vw'};
 
         white-space: nowrap;
         overflow: hidden;
@@ -60,7 +60,7 @@ const StyledPlayer = styled.section`
     }
 
     .playerOptionColor {
-        flex-grow: 0.25;
+        flex: 0.25;
         display: flex;
     }
 
