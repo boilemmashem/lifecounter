@@ -1,10 +1,9 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
 import {NewGameModal} from './NewGameModal'
-import {Player} from './Player'
 import {PlayerArea} from './PlayerArea'
-import { getRandomColor } from '../helpers/getColor'
 import { SettingsModal } from './SettingsModal'
+import { MenuButton } from './MenuButton'
 
 import { WakeLock } from '../helpers/WakeLock'
 
@@ -12,18 +11,20 @@ import { WakeLock } from '../helpers/WakeLock'
 export const SettingsContext = React.createContext();
 
 const StyledApp = styled.div`
-// app styles
+
   margin: 0;
-  overflow: hidden;
   .wrapper.landscapetrue {
     transform: rotate(90deg);
     transform-origin:bottom left;
     position:absolute;
     top: -100vw;
     left: 0;
-    height:100vw;
+    height:100vw; /* Height is width when in landscape */
     width:100vh;
     overflow:auto;
+  }
+  .wrapper.landscapefalse{
+    height: 100vh;
   }
 `
 export function App() {
@@ -55,7 +56,7 @@ export function App() {
           <SettingsModal wakeLockSupport={wakeLockSupport}/>
         </SettingsContext.Provider>
         <PlayerArea playerCount={playerCount} startingLifeTotal={startingLifeTotal} className={`playerArea playerCount${playerCount}`} />
-        <button className={`menu playerCount${playerCount}`} onClick={() => setSettingsOpen(true)}>menu</button>
+        <MenuButton className={`menu playerCount${playerCount}`} onClick={() => setSettingsOpen(true)} landscapeMode={landscapeMode}/>
         </div>
     </StyledApp>
   );

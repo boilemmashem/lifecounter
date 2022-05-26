@@ -4,11 +4,26 @@ import {Player} from './Player'
 import { getRandomColor } from '../helpers/getColor'
 
 
-
-
 const StyledPlayerArea = styled.main`
-    
-    `
+  display: flex;
+  height: 100%;
+  section {
+    flex: 1;
+  }
+  &.playerCount1 {
+  }
+  &.playerCount2 {
+    flex-direction: column;
+  }
+  &.playerCount3 {
+    flex-flow: row wrap;
+    section { flex-basis: 50%; } // wrap after 2 sections
+  }
+  &.playerCount4 {
+    flex-flow: row wrap;
+    section { flex-basis: 50%; } // wrap after 2 sections
+  }
+`
 export const PlayerArea = (props) => {
     
     const addPlayers = (playerCount) => {
@@ -43,7 +58,7 @@ export const PlayerArea = (props) => {
 
 
     return (
-        <StyledPlayerArea>
+        <StyledPlayerArea className={props.className}>
             {addPlayers(props.playerCount)}
         </StyledPlayerArea>
     )
