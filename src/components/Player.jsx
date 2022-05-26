@@ -15,6 +15,7 @@ const StyledPlayer = styled.section`
         justify-content: center;
         gap: 1rem;
         padding: 1.5rem;
+        flex: 1;
         div {
             display: flex;
             flex-direction: column;
@@ -33,6 +34,7 @@ const StyledPlayer = styled.section`
     
     .playerName {
         color: ${props => props.contrastColor};
+        flex: 0.25;
         border: none;
         background: none;
         text-align: center;
@@ -54,6 +56,11 @@ const StyledPlayer = styled.section`
         &:active {
             border: 2px solid rgba(255,255,255, 0.3);
         }
+    }
+
+    .playerOptionColor {
+        flex: 0.25;
+        display: flex;
     }
 
     .colorButton{

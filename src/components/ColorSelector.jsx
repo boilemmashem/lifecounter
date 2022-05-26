@@ -12,8 +12,6 @@ const StyledColorSelector = styled.div`
 `
 export const ColorSelector = (props) => {
 
-
-
     function addColorOptions(colors) {
         const numberOfColors = Object.values(colors).length
         const colorArr = Object.values(colors)
@@ -27,7 +25,7 @@ export const ColorSelector = (props) => {
                     value={[colorArr[i][0], colorArr[i][1]]}
                     onClick={(e) => {
                         props.setPlayerBGColor(e.target.value.substring(0,7)); // Set player's background: ;
-                        props.setPlayerContrastColor(e.target.value.substring(8,12)) // set player's contrast color
+                        props.setPlayerContrastColor(e.target.value.substring(8,13)) // set player's contrast color
                         props.toggleColorSelector(); // Close color selection
                     }}
                 >
@@ -40,15 +38,17 @@ export const ColorSelector = (props) => {
     if(props.isOpen) {
         // If the colorSelector is open
         return (
-            <StyledColorSelector>
-                {addColorOptions(Colors)}
-            </StyledColorSelector>
+            <div className='playerOptionColor'>
+                <StyledColorSelector>
+                    {addColorOptions(Colors)}
+                </StyledColorSelector>
+            </div>
         )
     } else {
         return (
-            <button onClick={() => props.toggleColorSelector()} className="colorButton">colors</button>
+            <div className='playerOptionColor'>
+                <button onClick={() => props.toggleColorSelector()} className="colorButton">colors</button>
+            </div>
         )
     }
-
-    return null
 }
