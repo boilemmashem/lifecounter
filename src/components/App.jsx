@@ -54,7 +54,7 @@ export function App() {
           <NewGameModal/>
           <SettingsModal wakeLockSupport={wakeLockSupport}/>
         </SettingsContext.Provider>
-        <PlayerArea playerCount={playerCount} startingLifeTotal={startingLifeTotal} className={`playerArea playerCount${playerCount}`} />
+        <PlayerArea playerCount={playerCount} startingLifeTotal={startingLifeTotal} className={`playerArea playerCount${playerCount}`} landscapeMode={landscapeMode}/>
         <MenuButton className={`menu playerCount${playerCount} landscapeMode${landscapeMode}`} onClick={() => setSettingsOpen(true)}/>
         </div>
     </StyledApp>

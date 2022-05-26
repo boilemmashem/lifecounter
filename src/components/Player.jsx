@@ -7,21 +7,66 @@ import { useLongPress } from '../hooks/use-long-press'
 const StyledPlayer = styled.section`
     background: ${props => props.playerColor};
     color: ${props => props.contrastColor};
+    display: flex;
+    flex-direction: column;
 
     .playerLifeArea {
         display: flex;
         justify-content: center;
-        height: 25%;
+        gap: 1rem;
+        padding: 1.5rem;
+        div {
+            display: flex;
+            flex-direction: column;
+            justify-content: center ;
+            align-items: center;
+            flex: 2;
+        }
     }
 
+    .lifeTotal {
+        font-size: 10vw;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
     .playerName {
         color: ${props => props.contrastColor};
         border: none;
         background: none;
-        width: 100%;
         text-align: center;
+        display: block;
+        width: 100%;
+        font-size: 4vw;
+
+        white-space: nowrap;
+        overflow: hidden;
+
     }
-`
+    
+    .lifeButton {
+        border: 2px solid ${props => props.contrastColor === 'black' ? 'rgba(0,0,0,0.1)' : 'rgba(255,255,255,0.1)'};
+        border-radius: 0.75rem;
+        background: none;
+        flex: 1;
+        color: inherit;
+        &:active {
+            border: 2px solid rgba(255,255,255, 0.3);
+        }
+    }
+
+    .colorButton{
+        color: ${props => props.contrastColor === 'black' ? 'rgba(0,0,0,0.5)' : 'rgba(255,255,255,0.5)'};
+        border: none;
+        margin: 0 auto;
+        width: 35%;
+        background: 0;
+        font-size: 2vw;
+        height: 8%;
+    }
+
+    `
 export const Player = (props) => {
     const [playerLifeTotal, setPlayerLifeTotal] = useState(props.startingLifeTotal);
     const [playerName, setPlayerName] = useState(props.defaultPlayerName);
@@ -50,29 +95,28 @@ export const Player = (props) => {
         <StyledPlayer className={`player${props.playerNo}`} playerColor={playerBGColor} contrastColor={playerContrastColor}>
             <div className="playerLifeArea">
                 <button
+                    className="lifeButton subtract"
                     {...subtractBtnHandlers}
                 >
                     -1
                 </button>
-                <div>
-                    <span>{playerLifeTotal}</span>
-                    <input type="text" className="playerName" value={playerName} 
-                        onChange={(e) => setPlayerName(e.target.value)}
-                    />
-                </div>
+                <span className="lifeTotal">{playerLifeTotal}</span>
                 <button
+                    className="lifeButton add"
                     {...btnHandlers}
                 >
                     +1
                 </button>
             </div>
+            <input type="text" className="playerName" value={playerName} 
+                onChange={(e) => setPlayerName(e.target.value)}
+            />
             <ColorSelector 
                 isOpen={colorSelectorOpen} 
                 setPlayerBGColor={(e) => setPlayerBGColor(e)}
                 setPlayerContrastColor={(e) => setPlayerContrastColor(e)}
-                toggleOpen={() => toggleColorSelector()}
+                toggleColorSelector={() => toggleColorSelector()}
             />
-            {colorSelectorOpen ? null : <button onClick={() => toggleColorSelector()}>colors</button>}
         </StyledPlayer>
     )
 }

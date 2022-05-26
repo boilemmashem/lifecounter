@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@400;600&display=swap');
+
 *, *::before, *::after {
   box-sizing: border-box;
 }
@@ -5,4 +7,5 @@
 body {
   margin: 0;
   background: #666;
+  font-family: 'Heebo', Arial, Helvetica, sans-serif;
 }

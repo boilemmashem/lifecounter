@@ -82,6 +82,7 @@ export const PlayerArea = (props) => {
             defaultPlayerName={`Player ${i}`}
             playerNo={i}
             playerColors={getNewPlayerColor()}
+            landscapeMode={props.landscapeMode}
             key={`player${i}`} 
             />
             )

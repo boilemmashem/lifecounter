@@ -3,13 +3,9 @@ import styled from 'styled-components'
 import Colors from '../data/colors.json'
 
 const StyledColorSelector = styled.div`
-    display: flex;
-    flex-flow: row wrap;
-    gap: 0.75rem;
-    justify-content: center;
     button {
-        border: 2px solid rgba(255,255,255, 0.4);
-        border-radius: 100rem;
+        display: inline-block;
+        border: none;
         width: 1.5rem;
         height: 1.5rem;
     }
@@ -32,7 +28,7 @@ export const ColorSelector = (props) => {
                     onClick={(e) => {
                         props.setPlayerBGColor(e.target.value.substring(0,7)); // Set player's background: ;
                         props.setPlayerContrastColor(e.target.value.substring(8,12)) // set player's contrast color
-                        props.toggleOpen(); // Close color selection
+                        props.toggleColorSelector(); // Close color selection
                     }}
                 >
                 </button>
@@ -47,6 +43,10 @@ export const ColorSelector = (props) => {
             <StyledColorSelector>
                 {addColorOptions(Colors)}
             </StyledColorSelector>
+        )
+    } else {
+        return (
+            <button onClick={() => props.toggleColorSelector()} className="colorButton">colors</button>
         )
     }
 
