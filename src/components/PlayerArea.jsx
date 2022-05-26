@@ -14,49 +14,44 @@ const StyledPlayerArea = styled.main`
   }
   &.playerCount2 {
     flex-direction: column;
-    section { height: 50% }
-    section:nth-child(1) {
-      border-bottom: var(--border-thickness) solid var(--border-color);
-    }
-    section:nth-child(2) {
+    section {
+      height: 50%;
       border-top: var(--border-thickness) solid var(--border-color);
     }
   }
   &.playerCount3 {
     section { height: 50% }
     flex-flow: row wrap;
-    section { flex-basis: 50%; } // wrap after 2 sections
+    section { 
+      flex-basis: 50%; // wrap after 2 sections
+      border-top: var(--border-thickness) solid var(--border-color);
+    } 
     section:nth-child(1) {
-      border-right: var(--border-thickness) solid var(--border-color);
-      border-bottom: var(--border-thickness) solid var(--border-color);
+      border-left: var(--border-thickness) solid var(--border-color);
     }
     section:nth-child(2) {
       section { height: 50% }
-      border-left: var(--border-thickness) solid var(--border-color);
-      border-bottom: var(--border-thickness) solid var(--border-color);
-    }
-    section:nth-child(3) {
-      border-top: var(--border-thickness) solid var(--border-color);
+      border-right: var(--border-thickness) solid var(--border-color);
     }
   }
   &.playerCount4 {
     flex-flow: row wrap;
-    section { flex-basis: 50%; } // wrap after 2 sections
-    section:nth-child(1) {
-      border-right: var(--border-thickness) solid var(--border-color);
-      border-bottom: var(--border-thickness) solid var(--border-color);
-    }
-    section:nth-child(2) {
-      border-left: var(--border-thickness) solid var(--border-color);
-      border-bottom: var(--border-thickness) solid var(--border-color);
-    }
-    section:nth-child(3) {
-      border-right: var(--border-thickness) solid var(--border-color);
+    section { 
+      flex-basis: 50%; // wrap after 2 sections
+      height: 50%;
       border-top: var(--border-thickness) solid var(--border-color);
     }
-    section:nth-child(4) {
+    section:nth-child(1) { // player 4
       border-left: var(--border-thickness) solid var(--border-color);
-      border-top: var(--border-thickness) solid var(--border-color);
+    }
+    section:nth-child(2) { // player 3
+      border-right: var(--border-thickness) solid var(--border-color);
+    }
+    section:nth-child(3) { // player 2
+      border-right: var(--border-thickness) solid var(--border-color);
+    }
+    section:nth-child(4) { // player 1
+      border-left: var(--border-thickness) solid var(--border-color);
     }
   }
 

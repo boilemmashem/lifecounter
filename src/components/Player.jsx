@@ -27,7 +27,7 @@ const StyledPlayer = styled.section`
     }
 
     .lifeTotal {
-        font-size: 10vw;
+        font-size: ${props => props.landscapeMode ? '10vh' : '10vw'};
         display: flex;
         justify-content: center;
         align-items: center;
@@ -41,7 +41,7 @@ const StyledPlayer = styled.section`
         text-align: center;
         display: block;
         width: 100%;
-        font-size: 4vw;
+        font-size: ${props => props.landscapeMode ? '4vh' : '4vw'};
 
         white-space: nowrap;
         overflow: hidden;
@@ -70,7 +70,7 @@ const StyledPlayer = styled.section`
         margin: 0 auto;
         width: 35%;
         background: 0;
-        font-size: 2vw;
+        font-size: ${props => props.landscapeMode ? '2vh' : '2vw'};
     }
 
     `
@@ -99,7 +99,7 @@ export const Player = (props) => {
 
 
     return (
-        <StyledPlayer className={`player${props.playerNo}`} playerColor={playerBGColor} contrastColor={playerContrastColor}>
+        <StyledPlayer className={`player${props.playerNo}`} playerColor={playerBGColor} contrastColor={playerContrastColor} landscapeMode={props.landscapeMode}>
             <div className="playerLifeArea">
                 <button
                     className="lifeButton subtract"
