@@ -23,6 +23,7 @@ const StyledNewGame = styled.div`
         max-width: 80vw;
         max-height: 75vh;
         border-radius: 0.5rem;
+        box-shadow: 0 0 20px black;
         h1 {
             font-size: 10vw;
             color: #333;
