@@ -15,7 +15,17 @@ const StyledMenuButton = styled.button`
     border-radius: var(--menuButtonWidth);
     border: 5px solid #444;
     bottom: 2rem;
-    left: calc(50vw - var(--menuButtonWidth) / 2);
+    left: calc(90vw - var(--menuButtonWidth) / 2);
+
+    // Only one player
+    &.playerCount1.landscapeModetrue {
+        left: calc(90vh - var(--menuButtonWidth) / 2);
+    }
+    &.playerCount1 {
+        border: 5px solid rgba(255, 255, 255, 0.1);
+        background: rgba(255,255,255,0.2);
+        svg { fill: rgba(0,0,0,0.5) }
+    }
 
 
     // More than 1 player and not in landscape
