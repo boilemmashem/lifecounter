@@ -53,7 +53,8 @@ const StyledPlayer = styled.section`
         border-radius: 0.75rem;
         background: none;
         flex: 1;
-        color: inherit;
+        font-size: ${props => props.landscapeMode ? '5vh' : '6vw'};
+        color: ${props => props.contrastColor === 'black' ? 'rgba(0,0,0,0.3)' : 'rgba(255,255,255,0.3)'};;
         &:active {
             border: 2px solid rgba(255,255,255, 0.3);
         }
@@ -105,19 +106,22 @@ export const Player = (props) => {
                     className="lifeButton subtract"
                     {...subtractBtnHandlers}
                 >
-                    -1
+                    -
                 </button>
                 <span className="lifeTotal">{playerLifeTotal}</span>
                 <button
                     className="lifeButton add"
                     {...btnHandlers}
                 >
-                    +1
+                    +
                 </button>
             </div>
-            <input type="text" className="playerName" value={playerName} 
-                onChange={(e) => setPlayerName(e.target.value)}
-            />
+            {/* Hide the player name if the colorSelector is open */}
+            {colorSelectorOpen ? '' : 
+                <input type="text" className="playerName" value={playerName} 
+                    onChange={(e) => setPlayerName(e.target.value)}
+                />
+            }
             <ColorSelector 
                 isOpen={colorSelectorOpen} 
                 setPlayerBGColor={(e) => setPlayerBGColor(e)}

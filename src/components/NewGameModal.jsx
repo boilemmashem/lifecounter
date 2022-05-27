@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { SettingsContext } from './App'
+import BG40 from '../img/bg40.svg'
 
 const StyledNewGame = styled.div`
     position: fixed;
@@ -9,7 +10,8 @@ const StyledNewGame = styled.div`
     top: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0,0,0,0.5);
+    background: rgba(41, 47, 54, 1);
+    background-image: url('${BG40}');
     display: flex;
     justify-content: center;
     align-items: center;
