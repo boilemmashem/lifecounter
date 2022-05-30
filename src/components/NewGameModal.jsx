@@ -21,18 +21,18 @@ const StyledNewGame = styled.div`
         background: white;
         padding: 2vh 5vw;
         max-width: 80vw;
-        max-height: 75vh;
         border-radius: 0.5rem;
         box-shadow: 0 0 20px black;
         h1 {
-            font-size: 10vw;
+            font-size: max(10vw, 10rem);
+            margin: 0.4vw auto 0.2vw;
             color: #333;
             text-align: center;
             font-weight: bold;
             letter-spacing: -3.5px;
         }
         label {
-            font-size: 4vw;
+            font-size: max(4vw, 3rem);
             display: inline-block;
         }
         select#newGamePlayerCount {
@@ -44,7 +44,7 @@ const StyledNewGame = styled.div`
             display: inline-block;
             border: 2px solid rgba(0,0,0,0.2);
             border-radius: 0.25rem;
-            font-size: 3vw;
+            font-size: max(3vw, 1.5rem);
         }
 
         .btnNewGameStart {
