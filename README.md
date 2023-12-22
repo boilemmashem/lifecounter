@@ -1,5 +1,3 @@
-[![Netlify Status](https://api.netlify.com/api/v1/badges/85e84907-4ed1-4bbc-9959-0d495e3f0b96/deploy-status)](https://app.netlify.com/sites/mtglifecounter/deploys)
-
 ![Preview screenshot](/src/img/preview.png)
 
 # LifeCounter
