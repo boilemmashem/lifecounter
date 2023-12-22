@@ -2,6 +2,8 @@
 
 # LifeCounter
 
+Works best on chrome, some features may not be supported elsewhere. Looks best on a phone 🤩
+
 https://mtglifecounter.netlify.app
 
 A small web application to keep track of your life total during a game of [Magic the Gathering](https://en.wikipedia.org/wiki/Magic:_The_Gathering). Built using `create react app`.
